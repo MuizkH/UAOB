@@ -26,7 +26,8 @@ const [incidentsList, setIncidentsList] = useState<any[]>([]);
   const fetchTelemetry = async () => {
     try {
       // 1. Fetch docs
-      const docRes = await fetch('/api/ingest');
+      const API = import.meta.env.VITE_API_URL;
+    const docRes = await fetch(`${API}/api/ingest`);
       if (docRes.ok) {
         const docData = await docRes.json();
         setDocumentList(docData);
@@ -34,14 +35,14 @@ const [incidentsList, setIncidentsList] = useState<any[]>([]);
       }
 
       // 2. Fetch assets
-      const assetRes = await fetch('/api/assets');
+     const assetRes = await fetch(`${API}/api/assets`);
       if (assetRes.ok) {
         const assetData = await assetRes.json();
         setAssetsList(assetData);
       }
 
       // 3. Fetch incidents
-      const incRes = await fetch('/api/incidents');
+   const incRes = await fetch(`${API}/api/incidents`);
       if (incRes.ok) {
         const incData = await incRes.json();
         setIncidentsList(incData);
