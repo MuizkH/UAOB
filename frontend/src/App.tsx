@@ -13,9 +13,10 @@ export default function App() {
   const [userRole, setUserRole] = useState('Engineer');
   
   // Data lists
-  const [documentList, setDocumentList] = useState([]);
-  const [assetsList, setAssetsList] = useState([]);
-  const [incidentsList, setIncidentsList] = useState([]);
+// Data lists
+const [documentList, setDocumentList] = useState<any[]>([]);
+const [assetsList, setAssetsList] = useState<any[]>([]);
+const [incidentsList, setIncidentsList] = useState<any[]>([]);
 
   // Server health connections
   const [dbStatus, setDbStatus] = useState(false);
